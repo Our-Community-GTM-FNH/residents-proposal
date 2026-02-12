@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Society Operations Reform Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== Top-Down Mobile-First CSS ===== */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+header {
+  padding: 36px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+}
+
+header h1 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+}
+
+header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+.main {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 20px 14px 40px;
+}
+
+section {
+  background: #111827;
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+section h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #60a5fa;
+}
+
+ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+li { margin-bottom: 6px; }
+
+/* Feedback Form */
+.form-wrap {
+  width: 100%;
+  height: 1800px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+}
+
+.form-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #020617;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 12px 40px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+@media (min-width: 640px) {
+  header { padding: 56px 20px; }
+  header h1 { font-size: 36px; }
+  header p { font-size: 16px; }
+  section { padding: 24px; margin-bottom: 22px; }
+  section h2 { font-size: 22px; }
+/* .form-wrap iframe { height: 640px; } */
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Society Operations Change Proposal</h1>
+  <p>Structured, Transparent, Mobile-First Governance Improvements</p>
+</header>
+
+<div class="main">
+
+  <!-- Section 1 -->
+  <section>
+    <h2>Issue and Solution</h2>
+    <ul id="sec1"></ul>
+  </section>
+
+  <!-- Section 2 -->
+  <section>
+    <h4>Detailed Description </h4>
+    <ul id="sec2"></ul>
+  </section>
+
+  <!-- Section 3 -->
+  <section>
+    <h4>Budget/Economics</h4>
+    <ul id="sec3"></ul>
+  </section>
+
+  <!-- Feedback Section -->
+  <section>
+    <h2>Residents Feedback</h2>
+    
+    <div class="form-wrap">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeuxBwYFHPYIrbiArTgUgzjD8vp_qe6ZPiNQ7f8TKO0Fubmcg/viewform?embedded=true">Loading…</iframe>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+   United as responsible residents. 
+</footer>
+
+<script>
+/* ===== Modular List Loader =====
+   Each section loads bullet points from a file in the same repo.
+   Supported format: simple text file with one bullet per line.
+   Example: data/sec1.txt
+*/
+
+async function loadList(filePath, elementId) {
+  try {
+    const res = await fetch(filePath);
+    const text = await res.text();
+
+    const lines = text
+      .split("\n")
+      .map(l => l.trim())
+      .filter(l => l && !l.startsWith("#"));
+
+    const ul = document.getElementById(elementId);
+    ul.innerHTML = lines.map(l => `<li>${l}</li>`).join("");
+
+  } catch (err) {
+    document.getElementById(elementId).innerHTML =
+      "<li>Content failed to load</li>";
+  }
+}
+
+/* ===== File Mapping ===== */
+loadList("data/KeyIdeas.txt", "sec1");
+loadList("data/Common.txt", "sec2");
+loadList("data/SelfManaged.txt", "sec3");
+</script>
+
+</body>
+</html>
