@@ -1,0 +1,5 @@
+Operational decisions depend on informal workflows
+Members lack consistent visibility into actions and finances
+Issue tracking is not standardized
+Communication is fragmented
+Audit trail is weak
