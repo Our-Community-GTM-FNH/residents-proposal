@@ -67,6 +67,7 @@ li { margin-bottom: 6px; }
 /* Feedback Form */
 .form-wrap {
   width: 100%;
+  height: 1800px;
   overflow: hidden;
   border-radius: 12px;
   border: 1px solid #1f2937;
@@ -74,7 +75,7 @@ li { margin-bottom: 6px; }
 
 .form-wrap iframe {
   width: 100%;
-  height: 520px;
+  height: 100%;
   border: 0;
   background: #020617;
 }
@@ -92,7 +93,7 @@ footer {
   header p { font-size: 16px; }
   section { padding: 24px; margin-bottom: 22px; }
   section h2 { font-size: 22px; }
-  .form-wrap iframe { height: 640px; }
+/* .form-wrap iframe { height: 640px; } */
 }
 </style>
 </head>
@@ -108,37 +109,35 @@ footer {
 
   <!-- Section 1 -->
   <section>
-    <h2>Why Change Is Needed</h2>
+    <h2>Key Ideas</h2>
     <ul id="sec1"></ul>
   </section>
 
   <!-- Section 2 -->
   <section>
-    <h2>Proposed Operational Structure</h2>
+    <h2>Detail: What is common</h2>
     <ul id="sec2"></ul>
   </section>
 
   <!-- Section 3 -->
   <section>
-    <h2>Expected Member Benefits</h2>
+    <h2>Detail: what can be self managed</h2>
     <ul id="sec3"></ul>
   </section>
 
   <!-- Feedback Section -->
   <section>
-    <h2>Member Feedback</h2>
-    <ul id="feedbackPoints"></ul>
-
+    <h2>Residents Feedback</h2>
+    
     <div class="form-wrap">
-      <!-- Replace with your Google Form embed link -->
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeuxBwYFHPYIrbiArTgUgzjD8vp_qe6ZPiNQ7f8TKO0Fubmcg/viewform?embedded=true" width="640" height="1208" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeuxBwYFHPYIrbiArTgUgzjD8vp_qe6ZPiNQ7f8TKO0Fubmcg/viewform?embedded=true">Loading…</iframe>
     </div>
   </section>
 
 </div>
 
 <footer>
-  Society Operations Reform • Public Proposal Page
+   United as responsible residents. 
 </footer>
 
 <script>
@@ -168,10 +167,9 @@ async function loadList(filePath, elementId) {
 }
 
 /* ===== File Mapping ===== */
-loadList("data/sec1.txt", "sec1");
-loadList("data/sec2.txt", "sec2");
-loadList("data/sec3.txt", "sec3");
-loadList("data/feedback.txt", "feedbackPoints");
+loadList("data/KeyIdeas.txt", "sec1");
+loadList("data/Common.txt", "sec2");
+loadList("data/SelfManaged.txt", "sec3");
 </script>
 
 </body>
